@@ -1,5 +1,5 @@
 const keystone = require('keystone');
-const engine  = require('express-handlebars');
+const exphbs  = require('express-handlebars');
 
 // import environmental variables from our variables.env file
 require('dotenv').config({ path: 'variables.env' });
@@ -7,21 +7,40 @@ require('dotenv').config({ path: 'variables.env' });
 // Set up our keystone instance
 keystone.init({
   // The name of the KeystoneJS application
-  'name': process.env.NAME || 'Simple Backend Boilerplate',
+  'name': process.env.NAME || 'Dashboard | Sample Site',
   // Paths to our application static files
   'static': [
     './server/public/dist/',
     './server/public/img/',
   ],
 
+  'port': process.env.PORT || 5000,
+
   'views': './client/views',
 
-	'custom engine': engine({
+	'custom engine': exphbs({
     extname: '.hbs',
-		layoutsDir: './client/views/layouts',
-		defaultLayout: 'main',
+    partialsDir: './client/views/partials',
+    layoutsDir: './client/views/layouts',
+    defaultLayout: 'main',
+    helpers: {
+      ifeq: function (a, b, options) {
+          if (a === b) {
+              return options.fn(this);
+          } else {
+              return options.inverse(this);
+          }
+      },
+      ifnoteq: function (a, b, options) {
+          if (a !== b) {
+              return options.fn(this);
+          } else {
+              return options.inverse(this);
+          }
+      }
+    }
   }),
-  
+
   'view engine': '.hbs',
   
   'session': true,
@@ -31,6 +50,8 @@ keystone.init({
   'auto update': true,
   // The url for your MongoDB connection
   'mongo': process.env.DATABASE || 'mongodb://localhost/db-demo',
+
+  'cloudinary config': process.env.CLOUDINARY_URL,
   // Whether to enable built-in authentication for Keystone's Admin UI,
   'auth': true,
   // The key of the Keystone List for users, required if auth is set to true
@@ -40,11 +61,7 @@ keystone.init({
 
 });
 
-// Load your project's Models
-keystone.import('./server/models');
-
-// Add routes
-keystone.set('routes', require('./server/routes'));
+require('./app');
 
 // Start Keystone
 keystone.start();

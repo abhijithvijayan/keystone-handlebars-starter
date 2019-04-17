@@ -22,16 +22,6 @@ module.exports = (env, options) => ({
         }
       },
       {
-        test: /\.(png|ico|jpe?g|gif|svg)$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'img/'
-          }
-        }]
-      },
-      {
         test: /\.(scss)$/,
         use: [
           options.mode !== "production" ?
