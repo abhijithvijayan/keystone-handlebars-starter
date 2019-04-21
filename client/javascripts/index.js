@@ -1,4 +1,4 @@
-
+/* eslint-disable no-console */
 /*!
  *
  * @author   abhijithvijayan <https://abhijithvijayan.in>
@@ -16,37 +16,14 @@ getAPIstatus();
 
 /* ------------------------------------------------------------- */
 
-
 $(document).ready(() => {
-
     // bootstrap tooltip
     $(() => {
         $('[data-toggle="tooltip"]').tooltip({
-            trigger: 'hover'
+            trigger: 'hover',
         });
     });
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 console.log('%cCrafted and Coded by abhijithvijayan', 'color: white; background: black; padding: 5px 20px');
 

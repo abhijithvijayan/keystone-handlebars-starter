@@ -1,29 +1,29 @@
-module.exports = function (api) {
+module.exports = function(api) {
     api.cache(true);
 
     const presets = [
         [
-            "@babel/preset-env",
+            '@babel/preset-env',
             {
-                "targets": {
-                    "chrome": "49",
-                    "firefox": "47",
-                    "opera": "36"
-                }
-            }
-        ]
+                targets: {
+                    chrome: '49',
+                    firefox: '47',
+                    opera: '36',
+                },
+            },
+        ],
     ];
     const plugins = [
         [
-            "@babel/plugin-transform-runtime",
+            '@babel/plugin-transform-runtime',
             {
-                "regenerator": true
-            }
-        ]
+                regenerator: true,
+            },
+        ],
     ];
 
     return {
         presets,
-        plugins
+        plugins,
     };
-}
+};

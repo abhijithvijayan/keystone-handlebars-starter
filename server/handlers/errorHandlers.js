@@ -7,68 +7,61 @@ const _ = require('lodash');
   catchErrors(), catch any errors they throw, and pass it along to our express middleware with next()
 */
 
-exports.catchErrors = (fn) => {
-  return function (req, res, next) {
-    return fn(req, res, next).catch(next);
-  };
+exports.catchErrors = fn => {
+    return function(req, res, next) {
+        return fn(req, res, next).catch(next);
+    };
 };
-
 
 /**
   Initialises the standard view locals.
   Include anything that should be initialised before route controllers are executed.
 */
-exports.initLocals = function (req, res, next) {
-
-  const locals = res.locals;
-  locals.user = req.user || null;
-  locals.currentPath = req.path;
-  next();
-
+exports.initLocals = function(req, res, next) {
+    const { locals } = res;
+    locals.user = req.user || null;
+    locals.currentPath = req.path;
+    next();
 };
-
 
 /**
     Inits the error handler functions into `res`
 */
-exports.initErrorHandlers = function (req, res, next) {
+exports.initErrorHandlers = function(req, res, next) {
+    res.err = function(err, title, message) {
+        res.status(500).render('errors/500', {
+            err,
+            errorTitle: title,
+            errorMsg: message,
+        });
+    };
 
-  res.err = function (err, title, message) {
-    res.status(500).render('errors/500', {
-      err: err,
-      errorTitle: title,
-      errorMsg: message
-    });
-  }
+    res.notfound = function(title, message) {
+        res.status(404).render('errors/404', {
+            errorTitle: title,
+            errorMsg: message,
+        });
+    };
 
-  res.notfound = function (title, message) {
-    res.status(404).render('errors/404', {
-      errorTitle: title,
-      errorMsg: message
-    });
-  }
-
-  next();
-
+    next();
 };
-
 
 /**
   Fetches and clears the flashMessages before a view is rendered
 */
-exports.flashMessages = function (req, res, next) {
+exports.flashMessages = function(req, res, next) {
+    const flashMessages = {
+        info: req.flash('info'),
+        success: req.flash('success'),
+        warning: req.flash('warning'),
+        error: req.flash('error'),
+    };
 
-  const flashMessages = {
-    info: req.flash('info'),
-    success: req.flash('success'),
-    warning: req.flash('warning'),
-    error: req.flash('error')
-  };
+    res.locals.messages = _.some(flashMessages, function(msgs) {
+        return msgs.length;
+    })
+        ? flashMessages
+        : false;
 
-  res.locals.messages = _.some(flashMessages, function (msgs) {
-    return msgs.length
-  }) ? flashMessages : false;
-
-  next();
-
+    next();
 };
