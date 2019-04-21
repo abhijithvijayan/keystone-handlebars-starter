@@ -15,6 +15,8 @@ keystone.init({
 
     views: './client/views',
 
+    'signin logo': ['/login_logo.png', 228, 60],
+
     'custom engine': exphbs({
         extname: '.hbs',
         partialsDir: './client/views/partials',
