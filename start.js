@@ -15,7 +15,11 @@ keystone.init({
 
     views: './client/views',
 
-    'signin logo': ['/login_logo.png', 228, 60],
+    'signin logo': [
+        'https://res.cloudinary.com/abhijithvijayan/image/upload/v1555841580/himuqvjwbrefkv0jtfby.png',
+        228,
+        60,
+    ],
 
     'custom engine': exphbs({
         extname: '.hbs',
