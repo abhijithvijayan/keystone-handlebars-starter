@@ -7,7 +7,11 @@
  */
 
 import 'bootstrap';
-import '../sass/main.scss';
+
+/* Common SASS styles */
+import 'normalize.css/normalize.css';
+import '../styles/main.scss';
+
 import getAPIstatus from './modules/getAPIstatus';
 
 /* ------------------------------------------------------------- */
