@@ -8,7 +8,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = (env, options) => {
     return {
         entry: {
-            bundle: './client/javascripts/index.js',
+            bundle: './js/index.js',
         },
         devtool: options.mode === 'production' ? false : 'inline-source-map',
         performance: {
@@ -45,7 +45,7 @@ module.exports = (env, options) => {
             new MiniCssExtractPlugin({
                 filename: 'styles.css',
             }),
-            new CleanWebpackPlugin(['server/public/dist']),
+            new CleanWebpackPlugin(['public/dist']),
             new webpack.ProvidePlugin({
                 $: 'jquery',
                 jQuery: 'jquery',
@@ -82,9 +82,9 @@ module.exports = (env, options) => {
             ],
         },
         output: {
-            path: path.resolve(__dirname, 'server', 'public', 'dist'),
+            path: path.resolve(__dirname, 'build'),
             filename: '[name].js',
-            // publicPath: 'server/public/dist/',
+            // publicPath: 'public/dist/',
         },
     };
 };
