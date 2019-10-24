@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const name = process.env.NAME || 'FRIENDS';
+const name = process.env.NAME || 'F.R.I.E.N.D.S';
 const jwtSecret = process.env.JWT_SECRET || 'some_jwt_secret_token';
 
 exports.generateToken = (req, res) => {
@@ -12,14 +12,14 @@ exports.generateToken = (req, res) => {
             },
             secret
         );
-        res.json({
+        return res.json({
             success: true,
             message: 'Token Generation successful!!',
             secret,
             token,
         });
     } else {
-        res.json({
+        return res.json({
             success: false,
             message: 'Error! Secret is not supplied',
         });
@@ -42,7 +42,7 @@ exports.validateToken = (req, res, next) => {
                 });
             }
             req.decoded = decoded;
-            next();
+            return next();
         });
     } else {
         return res.json({

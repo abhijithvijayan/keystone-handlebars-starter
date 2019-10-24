@@ -1,4 +1,3 @@
-const path = require('path');
 const keystone = require('keystone');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
@@ -8,6 +7,7 @@ keystone.import('./server/models');
 
 // Add routes
 keystone.set('routes', require('./routes'));
+keystone.set('routes', require('./routes/api'));
 
 /* -------------------------------------------------------------- */
 /* --------------------- Helpers and Locals --------------------- */

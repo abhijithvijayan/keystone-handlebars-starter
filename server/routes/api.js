@@ -1,14 +1,15 @@
 const keystone = require('keystone');
 const express = require('express');
 
+const router = express.Router();
+
 const { catchErrors } = require('../handlers/errorHandlers');
 
-const router = express.Router();
-// import all files in a folder
+// Get access to our API routes
 const importRoutes = keystone.importer(__dirname);
 
 const routes = {
-    controllers: importRoutes('../controllers'),
+    controller: importRoutes('../controllers'),
     middlewares: importRoutes('../middlewares'),
 };
 
@@ -16,11 +17,14 @@ const routes = {
 /* ----------------------- CUSTOM ROUTES ----------------------- */
 /* ------------------------------------------------------------- */
 
-router.get('/', routes.controllers.app.index);
+router.get('/api/v1', 
+    keystone.middleware.api,
+    // routes.middlewares.tokens.validateToken,
+     routes.controllers.api.sendStatus
+);
 
-router.get('/login', routes.controllers.views.login);
-
-router.get('/logout', routes.controllers.views.logout);
+// generate a jwt token
+router.post('/api/v1/token', keystone.middleware.api, routes.middlewares.tokens.generateToken);
 
 /* ------------------------------------------------------------- */
 /* ------------------------- END ROUTES ------------------------ */

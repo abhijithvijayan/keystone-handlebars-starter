@@ -9,11 +9,11 @@ keystone.init({
     // The name of the KeystoneJS application
     name: process.env.NAME || 'Dashboard | Sample Site',
     // Paths to our application static files
-    static: ['./server/public/dist/', './server/public/img/'],
+    static: ['../client/build/'],
 
     port: process.env.PORT || 5000,
 
-    views: './client/views',
+    views: '../client/views',
 
     'signin logo': [
         'https://res.cloudinary.com/abhijithvijayan/image/upload/v1555841580/himuqvjwbrefkv0jtfby.png',
@@ -23,8 +23,8 @@ keystone.init({
 
     'custom engine': exphbs({
         extname: '.hbs',
-        partialsDir: './client/views/partials',
-        layoutsDir: './client/views/layouts',
+        partialsDir: '../client/views/partials',
+        layoutsDir: '../client/views/layouts',
         defaultLayout: 'main',
         helpers: {
             ifeq(a, b, options) {
