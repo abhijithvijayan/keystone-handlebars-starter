@@ -100,3 +100,5 @@ build
 
 # TernJS port file
 .tern-port
+
+variables.env
