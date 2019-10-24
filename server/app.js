@@ -7,7 +7,6 @@ keystone.import('./models');
 
 // Add routes
 keystone.set('routes', require('./routes'));
-keystone.set('routes', require('./routes/api'));
 
 /* -------------------------------------------------------------- */
 /* --------------------- Helpers and Locals --------------------- */
