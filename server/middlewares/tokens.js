@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const name = process.env.NAME || 'F.R.I.E.N.D.S';
+const name = process.env.SITE_NAME || 'F.R.I.E.N.D.S';
 const jwtSecret = process.env.JWT_SECRET || 'some_jwt_secret_token';
 
 exports.generateToken = (req, res) => {
