@@ -2,6 +2,10 @@
   "name": "@starter/server",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon ./server.js"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express-handlebars": "^3.1.0",

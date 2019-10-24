@@ -2,6 +2,10 @@
   "name": "@starter/client",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "dev": "webpack --watch --mode=development --display-max-modules=0",
+    "build": "webpack --mode=production"
+  },
   "dependencies": {
     "@babel/runtime": "^7.6.3",
     "axios": "^0.18.1",

@@ -16,11 +16,9 @@
     "nohoist": []
   },
   "scripts": {
-    "start": "node start.js",
-    "watch": "nodemon ./start.js --ignore client/",
-    "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"N,W\" --prefix name",
-    "assets": "webpack --watch  --mode=development --display-max-modules=0",
-    "minify": "webpack --mode=production",
+    "dev:web": "yarn workspace @starter/client dev",
+    "server": "yarn workspace @starter/server server",
+    "build:web": "yarn workspace @starter/client build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
