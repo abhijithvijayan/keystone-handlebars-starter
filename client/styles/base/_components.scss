@@ -1,0 +1,20 @@
+.pt-20 {
+  padding-top: 20px;
+}
+
+section {
+  padding-top: 3.5em;
+  padding-bottom: 3.5em;
+}
+
+.d-center {
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.link__blue {
+  color: blue;
+  text-decoration: underline;
+}
