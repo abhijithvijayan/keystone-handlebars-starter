@@ -18,12 +18,11 @@ exports.generateToken = (req, res) => {
             secret,
             token,
         });
-    } else {
-        return res.json({
-            success: false,
-            message: 'Error! Secret is not supplied',
-        });
     }
+    return res.json({
+        success: false,
+        message: 'Error! Secret is not supplied',
+    });
 };
 
 exports.validateToken = (req, res, next) => {

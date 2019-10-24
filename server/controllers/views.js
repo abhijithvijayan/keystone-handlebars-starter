@@ -1,7 +1,7 @@
 exports.login = (req, res) => {
-  res.redirect('/keystone');
+    res.redirect('/keystone');
 };
 
 exports.logout = (req, res) => {
-  res.redirect('/keystone/signout');
+    res.redirect('/keystone/signout');
 };

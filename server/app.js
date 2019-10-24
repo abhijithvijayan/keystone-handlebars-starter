@@ -35,6 +35,7 @@ keystone.set('500', function(err, req, res, next) {
     let message;
     if (err instanceof Error) {
         message = err.message;
+        // eslint-disable-next-line no-param-reassign
         err = err.stack;
     }
     res.err(err, title, message);

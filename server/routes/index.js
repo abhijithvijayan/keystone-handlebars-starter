@@ -1,5 +1,6 @@
-const keystone = require('keystone');
+/* eslint-disable-next-line import/no-extraneous-dependencies */
 const express = require('express');
+const keystone = require('keystone');
 
 const { catchErrors } = require('../handlers/errorHandlers');
 
