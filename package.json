@@ -16,8 +16,9 @@
     "nohoist": []
   },
   "scripts": {
-    "dev:web": "yarn workspace @starter/client dev",
+    "client": "yarn workspace @starter/client dev",
     "server": "yarn workspace @starter/server server",
+    "dev:web": "concurrently \"yarn run client\" \"yarn run server\" --names \"C,S\" --prefix name",
     "build:web": "yarn workspace @starter/client build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
