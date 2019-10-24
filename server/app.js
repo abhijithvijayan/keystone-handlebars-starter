@@ -1,9 +1,9 @@
 const keystone = require('keystone');
-const helpers = require('./helpers');
+const helpers = require('./config');
 const errorHandlers = require('./handlers/errorHandlers');
 
 // Load your project's Models
-keystone.import('./server/models');
+keystone.import('./models');
 
 // Add routes
 keystone.set('routes', require('./routes'));

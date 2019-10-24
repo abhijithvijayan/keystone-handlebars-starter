@@ -9,7 +9,7 @@ const { catchErrors } = require('../handlers/errorHandlers');
 const importRoutes = keystone.importer(__dirname);
 
 const routes = {
-    controller: importRoutes('../controllers'),
+    controllers: importRoutes('../controllers'),
     middlewares: importRoutes('../middlewares'),
 };
 
@@ -17,10 +17,11 @@ const routes = {
 /* ----------------------- CUSTOM ROUTES ----------------------- */
 /* ------------------------------------------------------------- */
 
-router.get('/api/v1', 
+router.get(
+    '/api/v1',
     keystone.middleware.api,
     // routes.middlewares.tokens.validateToken,
-     routes.controllers.api.sendStatus
+    routes.controllers.api.sendStatus
 );
 
 // generate a jwt token
