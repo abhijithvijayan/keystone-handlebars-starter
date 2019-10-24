@@ -2,10 +2,18 @@
   "name": "keystone-handlebars-boilerplate",
   "version": "1.0.0",
   "description": "keystone-handlebars-boilerplate",
-  "main": "start.js",
   "private": true,
+  "author": "abhijithvijayan",
+  "repository": "https://github.com/abhijithvijayan/keystone-handlebars-boilerplate.git",
   "engines": {
     "node": ">= 8 <11"
+  },
+  "workspaces": {
+    "packages": [
+      "client",
+      "server"
+    ],
+    "nohoist": []
   },
   "scripts": {
     "start": "node start.js",
@@ -16,31 +24,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "author": "abhijithvijayan",
-  "repository": "https://github.com/abhijithvijayan/keystone-handlebars-boilerplate.git",
-  "dependencies": {
-    "@babel/runtime": "^7.6.3",
-    "axios": "^0.18.1",
-    "bootstrap": "^4.3.1",
-    "dotenv": "^8.2.0",
-    "express-handlebars": "^3.1.0",
-    "jquery": "^3.4.1",
-    "jsonwebtoken": "^8.5.1",
-    "keystone": "^4.2.1",
-    "lodash": "^4.17.15",
-    "moment": "^2.24.0",
-    "popper.js": "^1.16.0"
-  },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.6.3",
-    "autoprefixer": "^9.6.5",
     "babel-eslint": "10.0.3",
-    "babel-loader": "^8.0.5",
-    "clean-webpack-plugin": "^1.0.1",
-    "concurrently": "^4.1.0",
-    "css-loader": "^2.1.1",
+    "concurrently": "^4.1.2",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-onepass": "1.4.2",
@@ -51,18 +37,6 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
-    "file-loader": "^4.2.0",
-    "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.13.0",
-    "nodemon": "^1.19.4",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "postcss-loader": "^3.0.0",
-    "precss": "^4.0.0",
-    "prettier": "^1.18.2",
-    "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.0",
-    "terser-webpack-plugin": "^2.2.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "prettier": "^1.18.2"
   }
 }
