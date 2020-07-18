@@ -11,7 +11,7 @@
     "express-handlebars": "^3.1.0",
     "jsonwebtoken": "^8.5.1",
     "keystone": "^4.2.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0"
   },
   "devDependencies": {
